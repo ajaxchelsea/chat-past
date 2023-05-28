@@ -72,5 +72,6 @@ options:
 ## Step 0：将 OpenAI API Key 加入环境变量并 pip install dependencies
 
 > export OPENAI_API_KEY=your-key
+> 
 > pip install -r requirements.txt
 

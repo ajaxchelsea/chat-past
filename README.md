@@ -12,9 +12,12 @@ Let OpenAI leverage your private knowledge, which presented in your past notes l
 ```
 python3 indexing.py -h
 
-usage: indexing.py [-h] [--source-folder SOURCE_FOLDER] [--db-folder DB_FOLDER] [--chunk-size CHUNK_SIZE]
+usage: python3 indexing.py [-h] [--source-folder SOURCE_FOLDER] [--db-folder DB_FOLDER] [--chunk-size CHUNK_SIZE]
 
-Using OpenAI Embedding API to index your private data, and persist them to Chroma. It will load all supported files from your specified source folder. Currently it supports text file(*.txt), markdown file(*.md) and html file(*.htm*). The support for Evernote exported notes is coming.
+Using OpenAI Embedding API to index your private data, and persist them to Chroma. 
+It will load all supported files from your specified source folder. 
+Currently it supports text file(*.txt), markdown file(*.md) and html file(*.htm*). 
+The support for Evernote exported notes is coming.
 
 options:
   -h, --help            show this help message and exit
@@ -30,6 +33,8 @@ options:
 
 ## Step 2：找出最相关的 Top K 段文档
 ```
+python3 query.py -h
+
 usage: query.py [-h] [--db-folder DB_FOLDER] [--top-k TOP_K] query
 
 Retrieve top k relevant docs.
@@ -46,6 +51,8 @@ options:
 
 ## Step 3：将最相关文档加入 context，连同你的问题向 OpenAI 发出请求
 ```
+python3 asking.py -h
+
 usage: asking.py [-h] [--db-folder DB_FOLDER] [--top-k TOP_K] query
 
 Ask your question to OpenAI, combined the top k relevant docs in context.

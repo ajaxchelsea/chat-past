@@ -1,6 +1,6 @@
 import os
 
-from langchain.document_loaders import DirectoryLoader
+from langchain.document_loaders import DirectoryLoader, EverNoteLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import Chroma
@@ -29,6 +29,7 @@ db_folder = args.db_folder
 original_documents = DirectoryLoader(source_folder, glob="*.md", recursive=True).load()
 original_documents.extend(DirectoryLoader(source_folder, glob="*.txt", recursive=True, loader_cls=AnyEncodingTextLoader).load())
 original_documents.extend(DirectoryLoader(source_folder, glob="*.htm*", recursive=True, loader_cls=AnyEncodingHtmlLoader).load())
+original_documents.extend(DirectoryLoader(source_folder, glob="*.enex", recursive=True, loader_cls=EverNoteLoader, loader_kwargs={"load_single_document":False}).load())
 
 # Step2：分块，合适长度
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=chunk_size, chunk_overlap=chunk_size/10)

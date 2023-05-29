@@ -16,8 +16,7 @@ usage: python3 indexing.py [-h] [--source-folder SOURCE_FOLDER] [--db-folder DB_
 
 Using OpenAI Embedding API to index your private data, and persist them to Chroma. 
 It will load all supported files from your specified source folder. 
-Currently it supports text file(*.txt), markdown file(*.md) and html file(*.htm*). 
-The support for Evernote exported notes is coming.
+Currently it supports exported Evernote file(*.enex), text file(*.txt), markdown file(*.md) and html file(*.htm*). 
 
 options:
   -h, --help            show this help message and exit

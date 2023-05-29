@@ -1,3 +1,4 @@
+from re import sub
 from typing import Any, Union, List, NamedTuple, Optional, cast
 from langchain.schema import Document
 from langchain.document_loaders.unstructured import UnstructuredFileLoader
@@ -10,6 +11,12 @@ def print_documents(documents:List[Document]):
         print(doc.metadata["source"])
         print(doc.page_content)
     print(f"documents count: {len(documents)}")
+
+def compress_newline(doc: Document) -> Document:
+    return Document(page_content=sub("\n+", "\n", doc.page_content), metadata=doc.metadata)
+
+def compress_newlines(original_documents: List[Document]) -> List[Document]:
+    return list(map(compress_newline, original_documents))
 
 class AnyEncodingTextLoader(TextLoader):
     def __init__(
@@ -67,4 +74,3 @@ class AnyEncodingHtmlLoader(UnstructuredFileLoader):
                 print(file_path)
                 print(encoding.encoding)
                 continue 
-

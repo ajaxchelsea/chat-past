@@ -14,8 +14,7 @@ parser = argparse.ArgumentParser(description="""
 Using OpenAI Embedding API to index your private data, and persist them to Chroma.
 
 It will load all supported files from your specified source folder. Currently it
-supports text file(*.txt), markdown file(*.md) and html file(*.htm*). The support 
-for Evernote exported notes is coming.
+supports exported Evernote file(*.enex), text file(*.txt), markdown file(*.md) and html file(*.htm*). 
 """)
 parser.add_argument('--source-folder', type=str, default=current_folder + "/source/", help="The source folder in which your private data is located.")
 parser.add_argument('--db-folder', type=str, default=current_folder + "/db/", help="The folder in which the indexed data will be persisted.")

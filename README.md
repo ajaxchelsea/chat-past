@@ -75,3 +75,6 @@ options:
 > 
 > pip install -r requirements.txt
 
+## One More Thing
+
+本工具支持索引从 Evernote 中导出的笔记文件（*.enex），但从Evernote中导出的时候不要选日期或时间相关的元数据，否则加载的时候会出错

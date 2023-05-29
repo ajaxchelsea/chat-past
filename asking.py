@@ -27,7 +27,7 @@ relevant_docs = vectordb.similarity_search(query, top_k)
 print_documents(relevant_docs)
 
 # Step 5：组成 context，向 OpenAI 发出真正请求
-chain = load_qa_chain(OpenAI(temperature=0.7), chain_type="stuff")
+chain = load_qa_chain(OpenAI(temperature=0.7, max_tokens=1024), chain_type="stuff")
 answer = chain.run(input_documents=relevant_docs, question=query)
 print("answer: ")
 print(answer)

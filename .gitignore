@@ -5,6 +5,9 @@
 .chroma/
 db/
 
+#临时文件
+*.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

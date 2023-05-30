@@ -10,9 +10,9 @@ Let OpenAI leverage your private knowledge, which presented in your past notes l
 
 ## Step 1：向量化你的数据
 ```
-python3 indexing.py -h
+python3 ingest.py -h
 
-usage: python3 indexing.py [-h] [--source-folder SOURCE_FOLDER] [--db-folder DB_FOLDER] [--chunk-size CHUNK_SIZE]
+usage: python3 ingest.py [-h] [--source-folder SOURCE_FOLDER] [--db-folder DB_FOLDER] [--chunk-size CHUNK_SIZE]
 
 Using OpenAI Embedding API to index your private data, and persist them to Chroma. 
 It will load all supported files from your specified source folder. 

@@ -1,2 +1,2 @@
-chardet==5.1.0
-langchain==0.0.181
+chardet>=5.1.0
+langchain>=0.0.181

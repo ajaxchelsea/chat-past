@@ -3,6 +3,7 @@ import os
 from langchain.document_loaders import DirectoryLoader, EverNoteLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.vectorstores import Chroma
 
 import argparse
@@ -39,5 +40,9 @@ print_documents(chunked_docs)
 #        这一步只需要做一次，后面用的时候直接从硬盘加载，避免费钱
 
 embeddings = OpenAIEmbeddings()
+# You can use bunch of local embedding models like huggingface hub model.
+# It will download the model for the first run.
+# Go through langchain doc to find more local models for embedding.
+# embeddings = HuggingFaceEmbeddings()
 vectordb = Chroma.from_documents(documents=chunked_docs, embedding=embeddings, persist_directory=db_folder)
 vectordb.persist()

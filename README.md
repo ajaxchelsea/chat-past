@@ -77,3 +77,13 @@ options:
 ## One More Thing
 
 本工具支持索引从 Evernote 中导出的笔记文件（*.enex），但从Evernote中导出的时候不要选日期或时间相关的元数据，否则加载的时候会出错
+
+## Advanced
+
+代码中默认用的是OpenAI的向量化模型，优点是性能较好，向量化比较准确，语意相近的其向量距离也近，缺点是每次调用都是跨网络的，都要花钱（虽然确实便宜）。
+
+Langchain提供了众多向量化模型，大多可以本地运行。代码中通过注释演示了如何使用HuggingFaceHub的向量化模型，你可以取消其注释（当然对应的要把OpenAIEmbedding()那一行注释掉）来尝试一下，第一次运行的时候会下载模型文件，后续就直接本地加载不再需要下载了。好处是省钱，坏处是性能不行，语意也不太准确。
+
+The code currently uses OpenAI's embedding model by default. The advantage is that it performs well, embeds accurately, and the distances between embeddings are close for semantically similar terms. The downside is that each call is made across the network and costs money (although it is indeed cheap).
+
+Langchain provides many embedding models, most of which can run locally. The code demonstrates how to use the embedding model from HuggingFaceHub through comments. You can uncomment it (of course, you need to comment out the OpenAIEmbedding() line correspondingly) to give it a try. The model file will be downloaded the first time you run it, and subsequent runs will load it locally without needing to download again. The advantage is that it saves money, but the downside is that the performance is not as good, and the semantic accuracy is not very high.

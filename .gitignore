@@ -4,6 +4,7 @@
 #Chroma
 .chroma/
 db/
+source/
 
 #临时文件
 *.txt

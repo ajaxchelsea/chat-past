@@ -2,6 +2,7 @@ import argparse
 import os
 
 from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.vectorstores import Chroma
 
 from helpers import print_documents
@@ -20,6 +21,8 @@ query = args.query
 
 # Step4：从硬盘加载向量数据库，查询与问题最相似的 Top K 片段
 embeddings = OpenAIEmbeddings()
+# You should use same emdedding model as what you used for ingesting.
+# embeddings = HuggingFaceEmbeddings()
 vectordb = Chroma(embedding_function=embeddings, persist_directory=db_folder)
 relevant_docs = vectordb.similarity_search(query, top_k)
 print_documents(relevant_docs)
